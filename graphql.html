@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demonstrasi API</title>
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <h2>Demonstrasi GraphQL</h2>
+
+    <button onclick="graphqlAPI()">GraphQL</button>
+
+    <script>
+
+    // GRAPHQL
+    function graphqlAPI() {
+        fetch('https://graphqlzero.almansi.me/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: '{ users { data { id name email } } }'
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log("GraphQL:", data));
+    }
+
+    </script>
+
+</body>
+</html>

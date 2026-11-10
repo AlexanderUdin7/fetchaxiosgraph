@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demonstrasi API</title>
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <h2>Demonstrasi Axios</h2>
+
+    <button onclick="axiosAPI()">Axios</button>
+
+    <script>
+
+    // AXIOS
+    function axiosAPI() {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(response => console.log("Axios:", response.data));
+    }
+
+    </script>
+
+</body>
+</html>

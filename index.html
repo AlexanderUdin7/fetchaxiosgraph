@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demonstrasi API</title>
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <h2>Demonstrasi Fetch API, Axios dan GraphQL</h2>
+
+    <button onclick="fetchAPI()">Fetch API</button>
+    <button onclick="axiosAPI()">Axios</button>
+    <button onclick="graphqlAPI()">GraphQL</button>
+
+    <script>
+
+    // FETCH API
+    function fetchAPI() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(data => console.log("Fetch API:", data));
+    }
+
+    // AXIOS
+    function axiosAPI() {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(response => console.log("Axios:", response.data));
+    }
+
+    // GRAPHQL
+    function graphqlAPI() {
+        fetch('https://graphqlzero.almansi.me/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: '{ users { data { id name email } } }'
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log("GraphQL:", data));
+    }
+
+    </script>
+
+</body>
+</html>
